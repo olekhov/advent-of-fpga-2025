@@ -15,8 +15,8 @@ let read_moves filename =
   in
   loop []
 
-let solve_part1 moves =
+let solve_puzzle1 moves =
   List.length moves
 
-let solve_part2 moves =
+let solve_puzzle2 moves =
   List.length moves * 2
