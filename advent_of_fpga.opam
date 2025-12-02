@@ -1,0 +1,16 @@
+opam-version: "2.0"
+version: "0.1"
+synopsis: "Advent of FPGA / HardCaml"
+maintainer: "Vasilii Olekhov <olekhov@gmail.com>"
+authors: [ "Vasilii Olekhov" ]
+homepage: "https://github.com/olekhov/advent-of-fpga-2025"
+bug-reports: "https://github.com/olekhov/advent-of-fpga-2025/issues"
+license: "MIT"
+
+depends: [
+  "dune"
+  "hardcaml"
+  "hardcaml_waveterm"
+  "alcotest"
+]
+
