@@ -1,4 +1,4 @@
 (library
  (name common)
- (public_name aof.common)
+ (package advent_of_fpga)
 )
