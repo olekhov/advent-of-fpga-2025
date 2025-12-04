@@ -1,30 +1,20 @@
 open Hardcaml
-module HW = Day01.Hardware
+module HW = Day01.Safe_dial
 module Sim = Cyclesim.With_interface (HW.I) (HW.O)
 
 open! HW.I
 open! HW.O
 
-let bit b = if b then Bits.vdd else Bits.gnd
-
 let reset sim i =
   i.rst := Bits.vdd;
   i.step := Bits.gnd;
   i.dir := Bits.gnd;
-  (* Apply a full clock cycle with reset asserted so synchronous logic sees it. *)
-  i.clk := Bits.gnd; Cyclesim.cycle sim;
-  i.clk := Bits.vdd; Cyclesim.cycle sim;
-  i.clk := Bits.gnd; Cyclesim.cycle sim;
+  Cyclesim.cycle sim;
   i.rst := Bits.gnd
 
 let tick sim i ~step ~dir =
-  i.step := bit step;
-  i.dir := bit dir;
-  (* rising edge *)
-  i.clk := Bits.vdd;
-  Cyclesim.cycle sim;
-  (* falling edge *)
-  i.clk := Bits.gnd;
+  i.step := if step then Bits.vdd else Bits.gnd;
+  i.dir := if dir then Bits.vdd else Bits.gnd;
   Cyclesim.cycle sim
 
 let print_outputs o =

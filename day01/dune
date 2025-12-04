@@ -1,7 +1,7 @@
 (library
  (name day01)
  (public_name advent_of_fpga.day01)
- (modules safe_dial solver )
+ (modules safe_dial solver)
  (libraries hardcaml common)
  (preprocess (pps hardcaml.ppx_hardcaml0))
 )
@@ -30,6 +30,12 @@
  (name hw_puzzle1)
  (public_name advent_of_fpga.day01_hw_puzzle1)
  (modules hw_puzzle1)
+ (libraries day01 hardcaml))
+
+(executable
+ (name hw_puzzle2)
+ (public_name advent_of_fpga.day01_hw_puzzle2)
+ (modules hw_puzzle2)
  (libraries day01 hardcaml))
 
 (test
