@@ -12,7 +12,6 @@ let reset sim i =
   i.rst := Bits.vdd;
   i.step := Bits.gnd;
   i.dir := Bits.gnd;
-  i.clk := Bits.vdd;
   Cyclesim.cycle sim;
   i.rst := Bits.gnd
 
