@@ -26,6 +26,12 @@
  (modules sim)
  (libraries day01 hardcaml))
 
+(executable
+ (name hw_puzzle1)
+ (public_name advent_of_fpga.day01_hw_puzzle1)
+ (modules hw_puzzle1)
+ (libraries day01 hardcaml))
+
 (test
  (name test_day01)
  (modules test_day01)
